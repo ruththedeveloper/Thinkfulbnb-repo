@@ -3,9 +3,6 @@
 body {
   font-family: "Lato", sans-serif;
 }
-label {
-  margin-right: 10px;
-}
 
 h2 {
   font-size: 26px;
@@ -17,6 +14,7 @@ h2 {
 h3 {
   font-size: 18px;
   font-weight: 500;
+  margin: 10px;
 }
 
 p {
@@ -92,32 +90,42 @@ header nav ul li a:hover {
 }
 
 /* -------  Search Form ------- */
+
 form {
   display: flex;
-
   flex-direction: column;
-
-  justify-content: space-evenly;
+  justify-content: space-between;
   border: 2px solid #ff385c;
-  padding: 15px;
+  padding: 10px;
 }
 
-form label {
-  font-weight: bold;
+form .form-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: clamp(8px, 4vw, 18px);
 }
 
-form select,
-form input {
+form .form-item select,
+form .form-item input {
   margin-bottom: 20px;
   width: 65%;
+  align-self: flex-start;
 }
 
-form button {
+form .form-item label {
+  font-weight: bold;
+  padding-right: 10px;
+  text-align: left;
+}
+
+form .form-item button {
   background-color: #ff385c;
   border: none;
   color: #fff;
   font-size: 24px;
   padding: 15px;
+  text-align: center;
   width: 100%;
 }
 
@@ -135,7 +143,7 @@ footer p {
 
 /* -------  Media Query ------- */
 
-@media (min-width: 600px) {
+@media (min-width: 480px) {
   header {
     background-color: #ff385c;
     display: flex;
@@ -149,6 +157,20 @@ footer p {
 
   form {
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  form .form-item {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
+
+  form button {
+    font-size: 30px;
+    max-width: 100%;
   }
 
   .group {
@@ -157,20 +179,6 @@ footer p {
     justify-content: center;
     flex-flow: row nowrap;
     align-items: center;
-  }
-
-  .vacation-form .item {
-    display: flex block;
-    flex: 1 1 auto;
-    flex-direction: column;
-  }
-
-  .item label,
-  .item input,
-  .item select,
-  .item button {
-    display: flex;
-    width: 100%;
   }
 
   .idea-column {
